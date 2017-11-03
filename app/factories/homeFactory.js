@@ -7,7 +7,19 @@ app.factory('homeFactory', function($http, $q) {
       return $http({
         method: 'GET',
         url: baseURL + 'book',
+      
       });
-    }
-  };
+    },
+
+
+getversions: function() {
+  return $http({
+    method: 'GET',
+    url: baseURL + 'version',
+
+ });
+  
+  }
+}
 });
+

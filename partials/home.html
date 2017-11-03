@@ -17,7 +17,7 @@
 
       <div ng-if="isLoggedIn" class="menu-container">
         <div class="menu-item-container">
-          <a class="waves-effect waves-yellow menu-item" ng-click="newGame()" ng-mouseover="show=!show" ng-mouseleave="show=!show">Play Game</a>
+          <a class="waves-effect waves-yellow menu-item" ng-click="newGame()" ng-mouseover="show=!show" ng-mouseleave="show=!show">Go To {{username}}'s Devotional</a>
         </div>
       </div>
 
@@ -28,15 +28,15 @@
   <form name="bible">
 
     <label for="version" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Translation: </label>
-    <select class="input-field" ng-change="chosenOption()" name="version" id="translation" ng-model="translation">
+    <select class="input-field" name="version" id="versions" ng-model="selected_translation" ng-options="version.version for version in versions">
 
-      <option value="asv">American Standard Version</option>
+      <!-- <option value="asv">American Standard Version</option>
       <option value="bbe">Bible in Basic English</option>
       <option value="deb">Darby English Bible</option>
       <option value="kjv">King James Version</option>
       <option value="web">Webster's Bible</option>
       <option value="wdeb">World English Bible</option>
-      <option value="ylt">Young's Literal Translation</option>
+      <option value="ylt">Young's Literal Translation</option> -->
     </select>
     </form>
     <div class="container">
