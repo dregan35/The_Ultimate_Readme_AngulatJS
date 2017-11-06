@@ -6,20 +6,29 @@ app.controller("HomeCtrl", function(
   authFactory,
   homeFactory
 ) {
-  homeFactory.getbooks().then(function(data) {
-    console.log("data", data);
-    $scope.books = data.data;
-  });
-
-  homeFactory.getversions().then(function(data) {
-    console.log("data", data);
-    $scope.versions = data.data;
-  });
-
   $(document).ready(function() {
     $(`select`).material_select();
   });
 
+  $scope.chaptersLoaded = false;
+
+  homeFactory.getVersions().then(function(data) {
+    $scope.versions = data.data;
+  });
+
+  homeFactory.getBooks().then(function(data) {
+    $scope.books = data.data;
+  });
+ 
+  $scope.getChapters = () => {
+  homeFactory.getChapters($scope.selected_book.b).then(function(data) {
+    console.log("data", data.data);
+    $scope.chapters = [{c:1},{c:2}];
+
+    $scope.chaptersLoaded = true;
+  });
+  };
+  
   $scope.show = "false";
 
   $scope.authStatus = () => {

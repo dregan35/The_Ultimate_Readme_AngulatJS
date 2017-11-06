@@ -1,6 +1,6 @@
 app.factory('authFactory', function($http, $q) {
   
-  const baseURL = 'http://localhost:1149/api/v1/auth/';
+  const baseURL = 'http://localhost:1147/api/v1/auth/';
   
   return {
     // registers an new user with username and password

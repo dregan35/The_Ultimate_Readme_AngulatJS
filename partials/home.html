@@ -11,49 +11,40 @@
         <a class="waves-effect waves-light btn-large blue" href="/#!/register">Register</a>
       </div>
 
-      <h7 ng-if="isLoggedIn" class="top-right">welcome <a href="#" ng-click="logout()">{{username}}</a></h7>
+      <h7 ng-if="isLoggedIn" class="top-right">welcome
+        <a href="#" ng-click="logout()">{{username}}</a>
+      </h7>
 
-     
+
 
       <div ng-if="isLoggedIn" class="menu-container">
         <div class="menu-item-container">
           <a class="waves-effect waves-yellow menu-item" ng-click="newGame()" ng-mouseover="show=!show" ng-mouseleave="show=!show">Go To {{username}}'s Devotional</a>
         </div>
       </div>
+  
 
-    </div>
-  </div>
-</div>
 <div class="container">
   <form name="bible">
-
     <label for="version" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Translation: </label>
     <select class="input-field" name="version" id="versions" ng-model="selected_translation" ng-options="version.version for version in versions">
 
-      <!-- <option value="asv">American Standard Version</option>
-      <option value="bbe">Bible in Basic English</option>
-      <option value="deb">Darby English Bible</option>
-      <option value="kjv">King James Version</option>
-      <option value="web">Webster's Bible</option>
-      <option value="wdeb">World English Bible</option>
-      <option value="ylt">Young's Literal Translation</option> -->
     </select>
-    </form>
-    <div class="container">
-      <form name="book">
+  </form>
+</div>
+<div class="container">
+  <form name="book">
     <label for="book" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Book: </label>
-    <select ng-model="selected_book"class="input-field"  name="book" id="books" ng-options="book.n for book in books" >
-    
-      <!-- <option ng-repeat="book in books" value="{{book.n}}">{{book.n}}</option> -->
+    <select ng-model="selected_book" class="input-field" id="books" ng-options="book.n for book in books" ng-change="getChapters()">
+    </select>
+  </form>
+</div>
 
-
-      <!-- <option value="asv">American Standard Version</option>
-      <option value="bbe">Bible in Basic English</option>
-      <option value="deb">Darby English Bible</option>
-      <option value="kjv">King James Version</option>
-      <option value="web">Webster's Bible</option>
-      <option value="wdeb">World English Bible</option>
-      <option value="ylt">Young's Literal Translation</option> -->
+<div class="container">
+  <form name="chapter">
+    <label for="chapter" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Chapter: </label>
+    <select ng-model="selected_chapter" class="input-field" name="chapter" id="chapters" ng-options="chapter.c for chapter in chapters">
+      <option value="">test</option>
     </select>
   </form>
 </div>
