@@ -22,29 +22,40 @@
           <a class="waves-effect waves-yellow menu-item" ng-click="newGame()" ng-mouseover="show=!show" ng-mouseleave="show=!show">Go To {{username}}'s Devotional</a>
         </div>
       </div>
-  
 
-<div class="container">
-  <form name="bible">
-    <label for="version" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Translation: </label>
-    <select class="input-field" name="version" id="versions" ng-model="selected_translation" ng-options="version.version for version in versions">
+      <div ng-show="isLoggedIn" ng-hide="!isLoggedIn">
+        <div class="container">
+          <form name="bible">
+            <label for="version" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Translation: </label>
+            <select class="input-field" name="version" id="versions" ng-model="selected_translation" ng-options="version.table as version.version for version in versions">
 
-    </select>
-  </form>
-</div>
-<div class="container">
-  <form name="book">
-    <label for="book" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Book: </label>
-    <select ng-model="selected_book" class="input-field" id="books" ng-options="book.n for book in books" ng-change="getChapters()">
-    </select>
-  </form>
-</div>
+            </select>
+          </form>
+        </div>
+      </div>
 
-<div class="container">
+      <div ng-show="isLoggedIn" ng-hide="!isLoggedIn">
+        <div class="container">
+          <form name="book">
+            <label for="book" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Book: </label>
+            <select ng-model="selected_book" class="input-field" id="books" ng-options="book.n for book in books" ng-change="getText()">
+            </select>
+          </form>
+        </div>
+      </div>
+
+      <div ng-repeat="text in texts">Chapter:
+        <span ng-bind="text.c"></span> Verse:
+        <span ng-bind="text.v"></span>
+        <p ng-bind="text.t"></p>
+        </span>
+      </div>
+
+      <!-- <div class="container">
   <form name="chapter">
     <label for="chapter" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Chapter: </label>
-    <select ng-model="selected_chapter" class="input-field" name="chapter" id="chapters" ng-options="chapter.c for chapter in chapters">
-      <option value="">test</option>
-    </select>
+    <select ng-model="selected_chapter" class="input-field" name="chapter" id="chapters" ng-options="chapter.c as chapter.c for chapter in chapters">
+      <!-- <option value="">test</option> -->
+      <!-- </select>
   </form>
-</div>
+</div> -->

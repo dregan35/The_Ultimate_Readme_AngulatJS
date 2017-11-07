@@ -11,6 +11,13 @@ app.factory('homeFactory', function ($http, $q) {
       });
     },
 
+    getTexts: function(version, book) {
+      return $http({
+        method: 'GET',
+        url: baseURL + 'text?version='+ version +'&book='+book,
+      });
+    },
+
 getChapters: function(book) {
   console.log("bookfromgetchap", book);
   return $http({

@@ -18,9 +18,9 @@ app.config(function($routeProvider) {
       templateUrl: 'partials/register.html',
       controller: 'RegisterCtrl'
     })
-    .when('/game', {
-      templateUrl: 'partials/game.html',
-      controller: 'GameCtrl',
+    .when('/devotional', {
+      templateUrl: 'partials/devotional.html',
+      controller: 'DevotionalCtrl',
       resolve: {
         //This function is injected with the AuthService where you'll put your authentication logic
         'auth': function(authFactory) {
