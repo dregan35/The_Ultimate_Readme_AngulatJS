@@ -19,7 +19,7 @@
 
       <div ng-if="isLoggedIn" class="menu-container">
         <div class="menu-item-container">
-          <a href='http://127.0.0.1:8080/#!/devotional' ng-mouseover="show=!show" ng-mouseleave="show=!show">Go To {{username}}'s Devotional</a>
+          <a href='http://127.0.0.1:8080/#!/devotional' ng-mouseover="show=!show" ng-mouseleave="show=!show" ng-click="getDevotionals()">Go To {{username}}'s Devotional</a>
         </div>
       </div>
 

@@ -6,9 +6,9 @@ app.controller("HomeCtrl", function(
   authFactory,
   homeFactory
 ) {
-  $(document).ready(function() {
-    $(`select`).material_select();
-  });
+  // $(document).ready(function() {
+  //   $(`select`).material_select();
+  // });
   $scope.chapters = [];
   $scope.chaptersLoaded = false;
 

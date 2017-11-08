@@ -5,14 +5,31 @@ app.controller("DevotionalCtrl", function(
   $location,
   authFactory,
   homeFactory,
-  devotionalFactory
+  devotionalFactory,
+  $window
 ) {
   $scope.postDevotionals = () => {
+    $window.location.reload();
     devotionalFactory
       .postDevotionals($scope.username, $scope.devotional)
       .then(function(data) {
         $scope.username = username;
       });
+  };
+
+  devotionalFactory
+    .getDevotionals($scope.username, $scope.journal)
+    .then(function(data) {
+      console.log("datadev", data.data);
+      $scope.devCollection = data.data;
+    });
+
+  $scope.destroyDevotionals = function($event) {
+    $window.location.reload();
+    let id = $event.currentTarget.attributes.id.nodeValue;
+    devotionalFactory
+      .destroyDevotionals($scope.username, id)
+      .then(function(data) {});
   };
 
   $scope.show = "false";
