@@ -1,16 +1,18 @@
 "use strict";
 
-app.controller("devotionalCtrl", function(
+app.controller("DevotionalCtrl", function(
   $scope,
   $location,
   authFactory,
   homeFactory,
   devotionalFactory
 ) {
-  $(document).ready(function() {
-    $(`select`).material_select();
-  });
-  
+  $scope.postDevotionals = () => {
+    devotionalFactory.postDevotionals($scope.devotional, $scope.username).then(function(data) {
+      console.log("data",data);
+      // $scope.chapters = data.data;
+    });
+  };
 
   $scope.show = "false";
 

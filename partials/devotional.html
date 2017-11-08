@@ -1,7 +1,26 @@
-<div class="devotional-container">
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">{{username}}'s New Devotional</button>
 
-  <div class="devotional-row-container">
-    <div class="devotional-column-container">
-      <div>
-        <h1>Welcome To The Ultimate ReadMe</h1>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
       </div>
+      <div class="modal-body">
+        <p>{{username}}'s Devotional</p>
+        <input type="text" ng-model="devotional.text" class="form-control" style="width:575px; height:425px;">
+        <input type="date" ng-model="devotional.date" class="form-control"style="max-width:200px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="postDevotionals()">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

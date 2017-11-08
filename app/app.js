@@ -20,7 +20,11 @@ app.config(function($routeProvider) {
     })
     .when('/devotional', {
       templateUrl: 'partials/devotional.html',
-      controller: 'DevotionalCtrl',
+      controller: 'DevotionalCtrl'
+    })
+    .when('/game', {
+      templateUrl: 'partials/game.html',
+      controller: 'GameCtrl',
       resolve: {
         //This function is injected with the AuthService where you'll put your authentication logic
         'auth': function(authFactory) {

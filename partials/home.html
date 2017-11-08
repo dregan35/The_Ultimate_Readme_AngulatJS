@@ -7,8 +7,8 @@
       </div>
 
       <div ng-if="!isLoggedIn" class="container">
-        <a class="waves-effect waves-light btn-large green" href="/#!/login">Login</a>
-        <a class="waves-effect waves-light btn-large blue" href="/#!/register">Register</a>
+        <a class="btn btn-primary" href="/#!/login">Login</a>
+        <a class="btn btn-primary" href="/#!/register">Register</a>
       </div>
 
       <h7 ng-if="isLoggedIn" class="top-right">welcome
@@ -19,7 +19,7 @@
 
       <div ng-if="isLoggedIn" class="menu-container">
         <div class="menu-item-container">
-          <a class="waves-effect waves-yellow menu-item" ng-click="newGame()" ng-mouseover="show=!show" ng-mouseleave="show=!show">Go To {{username}}'s Devotional</a>
+          <a href='http://127.0.0.1:8080/#!/devotional' ng-mouseover="show=!show" ng-mouseleave="show=!show">Go To {{username}}'s Devotional</a>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
         <div class="container">
           <form name="bible">
             <label for="version" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Translation: </label>
-            <select class="input-field" name="version" id="versions" ng-model="selected_translation" ng-options="version.table as version.version for version in versions">
+            <select class="dropdown form-control" style="max-width:500px;" name="version" id="versions" ng-model="selected_translation" ng-options="version.table as version.version for version in versions" >
 
             </select>
           </form>
@@ -38,23 +38,28 @@
         <div class="container">
           <form name="book">
             <label for="book" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Book: </label>
-            <select ng-model="selected_book" class="input-field" id="books" ng-options="book.n for book in books" ng-change="getText()">
+            <select ng-model="selected_book" class="dropdown form-control" style="max-width:500px;" id="books" ng-options="book.n for book in books" ng-change="getText()" placeholder="Select A Book:">
             </select>
           </form>
         </div>
       </div>
-
-      <div ng-repeat="text in texts">Chapter:
+      <div ng-show="isLoggedIn" ng-hide="!isLoggedIn">
+      <p>Search</p>
+      <input type="text" ng-model="search" class="form-control" style="max-width:200px;" >
+      <div ng-repeat="text in texts | filter: search">Chapter:
         <span ng-bind="text.c"></span> Verse:
         <span ng-bind="text.v"></span>
         <p ng-bind="text.t"></p>
         </span>
       </div>
+      </div>
+
+    
 
       <!-- <div class="container">
   <form name="chapter">
     <label for="chapter" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Chapter: </label>
-    <select ng-model="selected_chapter" class="input-field" name="chapter" id="chapters" ng-options="chapter.c as chapter.c for chapter in chapters">
+    <select ng-model="selected_chapter" class="dropdown" name="chapter" id="chapters" ng-options="chapter.c as chapter.c for chapter in chapters">
       <!-- <option value="">test</option> -->
       <!-- </select>
   </form>
