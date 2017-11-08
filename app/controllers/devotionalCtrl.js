@@ -8,10 +8,11 @@ app.controller("DevotionalCtrl", function(
   devotionalFactory
 ) {
   $scope.postDevotionals = () => {
-    devotionalFactory.postDevotionals($scope.devotional, $scope.username).then(function(data) {
-      console.log("data",data);
-      // $scope.chapters = data.data;
-    });
+    devotionalFactory
+      .postDevotionals($scope.username, $scope.devotional)
+      .then(function(data) {
+        $scope.username = username;
+      });
   };
 
   $scope.show = "false";
