@@ -19,7 +19,6 @@ app.factory('homeFactory', function ($http, $q) {
     },
 
     getChapters: function (book) {
-      console.log("bookfromgetchap", book);
       return $http({
         method: 'GET',
         url: baseURL + 'chapter/' + book,

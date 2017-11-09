@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("DevotionalCtrl", function(
+app.controller("DevotionalCtrl", function (
   $scope,
   $location,
   authFactory,
@@ -12,24 +12,23 @@ app.controller("DevotionalCtrl", function(
     $window.location.reload();
     devotionalFactory
       .postDevotionals($scope.username, $scope.devotional)
-      .then(function(data) {
+      .then(function (data) {
         $scope.username = username;
       });
   };
 
   devotionalFactory
     .getDevotionals($scope.username, $scope.journal)
-    .then(function(data) {
-      console.log("datadev", data.data);
+    .then(function (data) {
       $scope.devCollection = data.data;
     });
 
-  $scope.destroyDevotionals = function($event) {
+  $scope.destroyDevotionals = function ($event) {
     $window.location.reload();
     let id = $event.currentTarget.attributes.id.nodeValue;
     devotionalFactory
       .destroyDevotionals($scope.username, id)
-      .then(function(data) {});
+      .then(function (data) {});
   };
 
   $scope.show = "false";

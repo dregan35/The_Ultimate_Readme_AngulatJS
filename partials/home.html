@@ -3,7 +3,8 @@
   <div class="home-row-container">
     <div class="home-column-container">
       <div>
-        <h1>Welcome To The Ultimate ReadMe</h1>
+        <h1 style="text-align:center;
+font-family: 'Dancing Script', cursive;">Welcome To The Ultimate ReadMe</h1>
       </div>
 
       <div ng-if="!isLoggedIn" class="container">
@@ -11,15 +12,15 @@
         <a class="btn btn-primary" href="/#!/register">Register</a>
       </div>
 
-      <h7 ng-if="isLoggedIn" class="top-right">welcome
-        <a href="#" ng-click="logout()">{{username}}</a>
+      <h7 ng-if="isLoggedIn" class="top-right" style="font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;color:rgb(12, 11, 11)">welcome
+        <a href="#" ng-click="logout()"style="font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;color:rgb(114, 7, 7)">{{username}}</a>
       </h7>
 
 
 
       <div ng-if="isLoggedIn" class="menu-container">
         <div class="menu-item-container">
-          <a href='http://127.0.0.1:8080/#!/devotional' ng-mouseover="show=!show" ng-mouseleave="show=!show" ng-click="getDevotionals()">Go To {{username}}'s Devotional</a>
+          <a href='http://127.0.0.1:8080/#!/devotional' ng-mouseover="show=!show" ng-mouseleave="show=!show" ng-click="getDevotionals()" style="font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;color:rgb(114, 7, 7)">Go To {{username}}'s Devotional</a>
         </div>
       </div>
 
@@ -27,7 +28,8 @@
         <div class="container">
           <form name="bible">
             <label for="version" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Translation: </label>
-            <select class="dropdown form-control" style="max-width:500px;" name="version" id="versions" ng-model="selected_translation" ng-options="version.table as version.version for version in versions" >
+            <select class="dropdown form-control" style="max-width:500px;" name="version" id="versions" ng-model="selected_translation"
+              ng-options="version.table as version.version for version in versions">
 
             </select>
           </form>
@@ -38,23 +40,24 @@
         <div class="container">
           <form name="book">
             <label for="book" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Book: </label>
-            <select ng-model="selected_book" class="dropdown form-control" style="max-width:500px;" id="books" ng-options="book.n for book in books" ng-change="getText()" placeholder="Select A Book:">
+            <select ng-model="selected_book" class="dropdown form-control" style="max-width:500px;" id="books" ng-options="book.n for book in books"
+              ng-change="getText()" placeholder="Select A Book:">
             </select>
           </form>
         </div>
       </div>
       <div ng-show="isLoggedIn" ng-hide="!isLoggedIn">
-      <p>Search</p>
-      <input type="text" ng-model="search" class="form-control" style="max-width:200px;" >
-      <div ng-repeat="text in texts | filter: search">Chapter:
-        <span ng-bind="text.c"></span> Verse:
-        <span ng-bind="text.v"></span>
-        <p ng-bind="text.t"></p>
-        </span>
-      </div>
+        <p style="font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;">Search</p>
+        <input type="text" ng-model="search" class="form-control" style="max-width:200px;">
+        <div ng-repeat="text in texts | filter: search"style="font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;">Chapter:
+          <span ng-bind="text.c" style="font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;"></span> Verse:
+          <span ng-bind="text.v" style="font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;"></span>
+          <p ng-bind="text.t" style="padding-left:300px;font-family: 'Abril Fatface', cursive;font-weight: 900;font-size:18px;"></p>
+          </span>
+        </div>
       </div>
 
-    
+
 
       <!-- <div class="container">
   <form name="chapter">

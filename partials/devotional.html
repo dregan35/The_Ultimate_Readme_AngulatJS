@@ -1,31 +1,36 @@
 <div>
-  <h1><a href="http://127.0.0.1:8080/#!/">The Ultimate ReadMe</a></h1>
-</div>
+  <div>
+    <h1 style="text-align:center; font-family: 'Dancing Script', cursive; color:rgb(114, 7, 7)">
+      <a href="http://127.0.0.1:8080/#!/" style="color:rgb(114, 7, 7)">The Ultimate ReadMe</a>
+    </h1>
+  </div>
 
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">{{username}}'s New Devotional</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">{{username}}'s New Devotional</button>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"></h4>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p>{{username}}'s Devotional</p>
+          <input type="text" ng-model="devotional.text" class="form-control" style="width:575px; height:425px;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" ng-click="postDevotionals()">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>{{username}}'s Devotional</p>
-        <input type="text" ng-model="devotional.text" class="form-control" style="width:575px; height:425px;">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="postDevotionals()">Save changes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+
     </div>
+  </div>
 
+  <div class="data" ng-repeat="devCollection in devCollection" style="border-style:groove; border-color:rgb(49, 2, 2);padding-top:100px;max-width:500px;">{{devCollection.journal}}
+    <button id="{{devCollection.id}}" type="button" value="{{devCollection.journal}}" class="btn btn-primary"
+      ng-click="destroyDevotionals($event)">Delete Devotional</button>
   </div>
 </div>
-
-<div class="data" ng-repeat="devCollection in devCollection" style="border-style:groove; border-color:rgb(40, 126, 224);">{{devCollection.journal}}<button id="{{devCollection.id}}" type="button" value="{{devCollection.journal}}" class="btn btn-primary" ng-click="destroyDevotionals($event)">Delete Devotional</button></div>
+</div>

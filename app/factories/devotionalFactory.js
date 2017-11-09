@@ -1,12 +1,14 @@
-app.factory("devotionalFactory", function($http, $q) {
+app.factory("devotionalFactory", function ($http, $q) {
   const baseURL = "http://localhost:1147/api/v1/";
   return {
-    postDevotionals: function(username, devotional) {
-      console.log("userand", username);
+    postDevotionals: function (username, devotional) {
       return $http({
         method: "POST",
         url: baseURL + "devotional",
-        data: {username, devotional}
+        data: {
+          username,
+          devotional
+        }
       });
     },
 
@@ -14,7 +16,10 @@ app.factory("devotionalFactory", function($http, $q) {
       return $http({
         method: 'GET',
         url: baseURL + 'devotional',
-        data: {username, journal}
+        data: {
+          username,
+          journal
+        }
 
       });
     },
@@ -23,7 +28,10 @@ app.factory("devotionalFactory", function($http, $q) {
       return $http({
         method: 'GET',
         url: baseURL + 'devotional',
-        data: {username, journal}
+        data: {
+          username,
+          journal
+        }
 
       });
     },
@@ -32,7 +40,9 @@ app.factory("devotionalFactory", function($http, $q) {
       return $http({
         method: 'DELETE',
         url: baseURL + 'devotional/' + id,
-        data: {username}
+        data: {
+          username
+        }
 
       });
     }
