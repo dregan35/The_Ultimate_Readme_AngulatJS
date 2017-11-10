@@ -1,6 +1,6 @@
 'use strict';
 
-const app = angular.module('JWT', ['ngRoute']);
+const app = angular.module('TUR', ['ngRoute']);
 
 app.config(function($routeProvider) {
 

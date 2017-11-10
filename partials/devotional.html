@@ -28,8 +28,8 @@
     </div>
   </div>
 
-  <div class="devotional" ng-repeat="devCollection in devCollection">
-    <p class="devcText">{{devCollection.journal}}</p>
+  <div class="w-75 devotional" ng-repeat="devCollection in devCollection">
+    <td class="devcText">{{devCollection.journal}}</td>
      <p class="dbut"><button id="{{devCollection.id}}" type="button" value="{{devCollection.journal}}" class="btn btn-danger btn-sm" ng-click="destroyDevotionals($event)">Delete Devotional</button>
     </p>
   </div>
