@@ -1,0 +1,132 @@
+.devotional {
+  border-style:groove;
+   border-color:rgb(49, 2, 2);
+  max-width:350px;
+  height:300px;
+  font-family: 'Abril Fatface',
+  cursive;
+  font-weight: 900;
+  font-size:15px;
+}
+
+body { 
+  background:
+  linear-gradient( rgba(255, 255, 255, .25), rgba(255, 255, 255, .25)),
+   url(../img/dev.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.user {
+   color:rgb(114, 7, 7);
+   font-family: 'Abril Fatface',
+   cursive;
+   font-weight: 900;
+   font-size:18px;
+}
+.top-right {
+  color:rgb(12, 11, 11);
+  font-family: 'Abril Fatface',
+  cursive;
+  font-weight: 900;
+  font-size:18px;
+}
+
+.welcome {
+  font-family: 'fantasy',
+  cursive;
+  font-weight: 900;
+  font-size:18px;
+  color:rgb(114, 7, 7)
+}
+
+#versions {
+  max-width:500px;
+}
+
+.version {
+  color:rgb(27, 23, 23);
+  font-size: 24px;
+}
+
+.book {
+  color:rgb(27, 23, 23);
+  font-size: 24px;
+}
+
+.btext {
+  font-family: 'Abril Fatface',
+  cursive;
+  font-weight: 900;
+  font-size:18px;
+}
+
+#searchbox {
+  max-width:200px;
+}
+
+.ctext{
+  font-family: 'Abril Fatface',
+  cursive;
+  font-weight: 900;
+  font-size:18px;
+}
+
+.vtext{
+  font-family: 'Abril Fatface',
+  cursive;
+  font-weight: 900;
+  font-size:18px;
+}
+
+.verText {
+  font-family: 'Abril Fatface',
+  cursive;
+  font-weight: 900;
+  font-size:18px;
+}
+
+.chapText {
+  padding-left:300px;
+  font-family: 'Abril Fatface',
+  cursive;
+  font-weight: 900;
+  font-size:18px;
+  /* border-style:groove;
+  border-color:rgb(49, 2, 2); */
+}
+
+.dWelcome {
+  text-align:center;
+  font-family: 'Dancing Script',
+  cursive;
+  color:rgb(114, 7, 7)
+}
+
+.wlink {
+  color:rgb(114, 7, 7)
+}
+
+#dmod {
+  width:575px;
+  height:425px;
+}
+
+.dbut {
+  padding-left: 227px;
+  padding-top:245px;
+}
+
+.devcText {
+  
+}
+
+.fWelcome {
+  font: 400 45px/1.3 'Oleo Script',
+  cursive;
+  color: #2b2b2b;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  text-align:center;
+}

@@ -3,57 +3,66 @@
   <div class="home-row-container">
     <div class="home-column-container">
       <div>
-        <h1>Welcome To The Ultimate ReadMe</h1>
+        <h1 class="fWelcome">Welcome To The Ultimate ReadMe</h1>
       </div>
 
       <div ng-if="!isLoggedIn" class="container">
-        <a class="waves-effect waves-light btn-large green" href="/#!/login">Login</a>
-        <a class="waves-effect waves-light btn-large blue" href="/#!/register">Register</a>
+        <a class="btn btn-primary" href="/#!/login">Login</a>
+        <a class="btn btn-primary" href="/#!/register">Register</a>
       </div>
 
-      <h7 ng-if="isLoggedIn" class="top-right">welcome <a href="#" ng-click="logout()">{{username}}</a></h7>
+      <h7 ng-if="isLoggedIn" class="top-right">Welcome
+        <a class="user" href="#" ng-click="logout()">{{username}}</a>
+      </h7>
 
-     
+
 
       <div ng-if="isLoggedIn" class="menu-container">
         <div class="menu-item-container">
-          <a class="waves-effect waves-yellow menu-item" ng-click="newGame()" ng-mouseover="show=!show" ng-mouseleave="show=!show">Go To {{username}}'s Devotional</a>
+          <a class="welcome" href='http://127.0.0.1:8080/#!/devotional' ng-mouseover="show=!show" ng-mouseleave="show=!show" ng-click="getDevotionals()">Go To {{username}}'s Devotional</a>
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
-<div class="container">
-  <form name="bible">
+      <div ng-show="isLoggedIn" ng-hide="!isLoggedIn">
+        <div class="container">
+          <form name="bible">
+            <label for="version" class="version"> Select A Translation: </label>
+            <select class="dropdown form-control"  name="version" id="versions" ng-model="selected_translation"
+              ng-options="version.table as version.version for version in versions">
 
-    <label for="version" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Translation: </label>
-    <select class="input-field" name="version" id="versions" ng-model="selected_translation" ng-options="version.version for version in versions">
+            </select>
+          </form>
+        </div>
+      </div>
 
-      <!-- <option value="asv">American Standard Version</option>
-      <option value="bbe">Bible in Basic English</option>
-      <option value="deb">Darby English Bible</option>
-      <option value="kjv">King James Version</option>
-      <option value="web">Webster's Bible</option>
-      <option value="wdeb">World English Bible</option>
-      <option value="ylt">Young's Literal Translation</option> -->
-    </select>
-    </form>
-    <div class="container">
-      <form name="book">
-    <label for="book" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Book: </label>
-    <select ng-model="selected_book"class="input-field"  name="book" id="books" ng-options="book.n for book in books" >
-    
-      <!-- <option ng-repeat="book in books" value="{{book.n}}">{{book.n}}</option> -->
+      <div ng-show="isLoggedIn" ng-hide="!isLoggedIn">
+        <div class="container">
+          <form name="book">
+            <label for="book" class="book"> Select A Book: </label>
+            <select ng-model="selected_book" class="dropdown form-control" style="max-width:500px;" id="books" ng-options="book.n for book in books"
+              ng-change="getText()" placeholder="Select A Book:">
+            </select>
+          </form>
+        </div>
+      </div>
+      <div ng-show="isLoggedIn" ng-hide="!isLoggedIn">
+        <p class:"btext">Search</p>
+        <input type="text" ng-model="search" class="form-control" id="searchbox">
+        <div class="ctext" ng-repeat="text in texts | filter: search">Chapter:
+          <span class="vtext" ng-bind="text.c"></span> Verse:
+          <span class="verText" ng-bind="text.v"></span>
+          <p class="chapText" ng-bind="text.t"></p>
+          </span>
+        </div>
+      </div>
 
 
-      <!-- <option value="asv">American Standard Version</option>
-      <option value="bbe">Bible in Basic English</option>
-      <option value="deb">Darby English Bible</option>
-      <option value="kjv">King James Version</option>
-      <option value="web">Webster's Bible</option>
-      <option value="wdeb">World English Bible</option>
-      <option value="ylt">Young's Literal Translation</option> -->
-    </select>
+
+      <!-- <div class="container">
+  <form name="chapter">
+    <label for="chapter" style="color:rgb(27, 23, 23); font-size: 24px;"> Select A Chapter: </label>
+    <select ng-model="selected_chapter" class="dropdown" name="chapter" id="chapters" ng-options="chapter.c as chapter.c for chapter in chapters">
+      <!-- <option value="">test</option> -->
+      <!-- </select>
   </form>
-</div>
+</div> -->

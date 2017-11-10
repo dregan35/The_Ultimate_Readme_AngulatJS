@@ -1,0 +1,37 @@
+<div>
+  <div>
+    <h1 class="dWelcome">
+      <a class="wlink" href="http://127.0.0.1:8080/#!/">The Ultimate ReadMe</a>
+    </h1>
+  </div>
+
+  <button type="button" class="btn btn-outline-warning btn-md" data-toggle="modal" data-target="#myModal">{{username}}'s New Devotional</button>
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p>{{username}}'s Devotional</p>
+          <input type="text" ng-model="devotional.text" class="form-control" id="dmod">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" ng-click="postDevotionals()">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="w-75 devotional" ng-repeat="devCollection in devCollection">
+    <td class="devcText">{{devCollection.journal}}</td>
+     <p class="dbut"><button id="{{devCollection.id}}" type="button" value="{{devCollection.journal}}" class="btn btn-danger btn-sm" ng-click="destroyDevotionals($event)">Delete Devotional</button>
+    </p>
+  </div>
+</div>
+</div>

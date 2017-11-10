@@ -1,38 +1,52 @@
-app.factory('authFactory', function($http, $q) {
-  
-  const baseURL = 'http://localhost:1149/api/v1/auth/';
-  
+app.factory('authFactory', function ($http, $q) {
+
+  const baseURL = 'http://localhost:1147/api/v1/auth/';
+
   return {
     // registers an new user with username and password
-    register: function({username, password}) {
-      console.log("userpass", username, password);
+    register: function ({
+      username,
+      password
+    }) {
       return $http({
         method: 'POST',
         url: baseURL + 'register',
-        data: {username, password},
-        headers: {'Content-Type': 'application/json'}
+        data: {
+          username,
+          password
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
     },
-  
+
     // logs in a user with username and password
-    login: function({username, password}) {
-      console.log('userpass', username, password);
+    login: function ({
+      username,
+      password
+    }) {
       return $http({
         method: 'POST',
         url: baseURL + 'login',
-        data: {username, password},
-        headers: {'Content-Type': 'application/json'}
+        data: {
+          username,
+          password
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
     },
-  
+
     // logs user out
-    logout: function() {
+    logout: function () {
       localStorage.token = '';
       localStorage.username = '';
     },
-  
+
     // makes sure user token is valid
-    ensureAuthenticated: function(token) {
+    ensureAuthenticated: function (token) {
       return $http({
         method: 'GET',
         url: baseURL + 'user',
@@ -42,9 +56,9 @@ app.factory('authFactory', function($http, $q) {
         }
       });
     },
-  
-    authenticateRoute : function() {
-      if(localStorage.isLoggedIn === 'true'){
+
+    authenticateRoute: function () {
+      if (localStorage.isLoggedIn === 'true') {
         //If authenticated, return anything you want, probably a user object
         return true;
       } else {
@@ -52,6 +66,6 @@ app.factory('authFactory', function($http, $q) {
         return $q.reject('Not Authenticated');
       }
     }
-  
+
   };
 });

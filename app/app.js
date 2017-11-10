@@ -1,6 +1,6 @@
 'use strict';
 
-const app = angular.module('JWT', ['ngRoute']);
+const app = angular.module('TUR', ['ngRoute']);
 
 app.config(function($routeProvider) {
 
@@ -17,6 +17,10 @@ app.config(function($routeProvider) {
     .when('/register', {
       templateUrl: 'partials/register.html',
       controller: 'RegisterCtrl'
+    })
+    .when('/devotional', {
+      templateUrl: 'partials/devotional.html',
+      controller: 'DevotionalCtrl'
     })
     .when('/game', {
       templateUrl: 'partials/game.html',

@@ -1,35 +1,34 @@
 "use strict";
 
-app.controller("HomeCtrl", function (
+app.controller("DevotionalCtrl", function (
   $scope,
   $location,
   authFactory,
-  homeFactory
+  homeFactory,
+  devotionalFactory,
+  $window
 ) {
-
-  $scope.chapters = [];
-  $scope.chaptersLoaded = false;
-
-  homeFactory.getVersions().then(function (data) {
-    $scope.versions = data.data;
-  });
-
-  homeFactory.getBooks().then(function (data) {
-    $scope.books = data.data;
-  });
-
-  $scope.getText = () => {
-    homeFactory
-      .getTexts($scope.selected_translation, $scope.selected_book.b)
+  $scope.postDevotionals = () => {
+    $window.location.reload();
+    devotionalFactory
+      .postDevotionals($scope.username, $scope.devotional)
       .then(function (data) {
-        $scope.texts = data.data;
+        $scope.username = username;
       });
   };
 
-  $scope.getChapters = () => {
-    homeFactory.getChapters($scope.selected_book.b).then(function (data) {
-      $scope.chapters = data.data;
+  devotionalFactory
+    .getDevotionals($scope.username, $scope.journal)
+    .then(function (data) {
+      $scope.devCollection = data.data;
     });
+
+  $scope.destroyDevotionals = function ($event) {
+    $window.location.reload();
+    let id = $event.currentTarget.attributes.id.nodeValue;
+    devotionalFactory
+      .destroyDevotionals($scope.username, id)
+      .then(function (data) {});
   };
 
   $scope.show = "false";

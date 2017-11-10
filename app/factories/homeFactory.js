@@ -1,25 +1,41 @@
-app.factory('homeFactory', function($http, $q) {
-  
-  const baseURL = 'http://localhost:1149/api/v1/';
+app.factory('homeFactory', function ($http, $q) {
+
+  const baseURL = 'http://localhost:1147/api/v1/';
   return {
 
-   getbooks: function() {
+    getBooks: function () {
       return $http({
         method: 'GET',
         url: baseURL + 'book',
-      
+
       });
     },
 
+    getTexts: function (version, book) {
+      return $http({
+        method: 'GET',
+        url: baseURL + 'text?version=' + version + '&book=' + book,
+      });
+    },
 
-getversions: function() {
-  return $http({
-    method: 'GET',
-    url: baseURL + 'version',
+    getChapters: function (book) {
+      return $http({
+        method: 'GET',
+        url: baseURL + 'chapter/' + book,
 
- });
-  
+
+      });
+
+    },
+
+
+    getVersions: function () {
+      return $http({
+        method: 'GET',
+        url: baseURL + 'version',
+
+      });
+
+    }
   }
-}
 });
-
