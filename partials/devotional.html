@@ -1,7 +1,7 @@
 <div>
   <div>
-    <h1 style="text-align:center; font-family: 'Dancing Script', cursive; color:rgb(114, 7, 7)">
-      <a href="http://127.0.0.1:8080/#!/" style="color:rgb(114, 7, 7)">The Ultimate ReadMe</a>
+    <h1 class="dWelcome">
+      <a class="wlink" href="http://127.0.0.1:8080/#!/">The Ultimate ReadMe</a>
     </h1>
   </div>
 
@@ -17,7 +17,7 @@
         </div>
         <div class="modal-body">
           <p>{{username}}'s Devotional</p>
-          <input type="text" ng-model="devotional.text" class="form-control" style="width:575px; height:425px;">
+          <input type="text" ng-model="devotional.text" class="form-control" id="dmod">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" ng-click="postDevotionals()">Save changes</button>
@@ -28,12 +28,10 @@
     </div>
   </div>
 
-  <div class="data"><p ng-repeat="devCollection in devCollection" style="border-style:groove; border-color:rgb(49, 2, 2);padding-top:200px;
-    max-width:400px;">{{devCollection.journal}}
-    <button id="{{devCollection.id}}" type="button" value="{{devCollection.journal}}" class="btn btn-danger btn-sm" style:"padding-left:100px;"
-      ng-click="destroyDevotionals($event)">Delete Devotional</button>
-  </p>
-    </div>
+  <div class="devotional" ng-repeat="devCollection in devCollection">
+    <p class="devcText">{{devCollection.journal}}</p>
+     <p class="dbut"><button id="{{devCollection.id}}" type="button" value="{{devCollection.journal}}" class="btn btn-danger btn-sm" ng-click="destroyDevotionals($event)">Delete Devotional</button>
+    </p>
+  </div>
 </div>
 </div>
-
